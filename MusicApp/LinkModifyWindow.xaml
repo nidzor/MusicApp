@@ -11,25 +11,43 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0" Margin="10 10 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Add Group" Click="ShowGrid"/>
-        <Button Grid.Column="0" Margin="10 50 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Delete Group" Click="ShowGrid"/>
-        <Button Grid.Column="0" Margin="10 90 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Add Link" Click="ShowGrid"/>
-        <Button Grid.Column="0" Margin="10 130 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Delete Link" Click="ShowGrid"/>
         
-        <Grid Grid.Column="1" Margin="10" x:Name="AddGroupGrid" Visibility="Hidden">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Row="0" Grid.Column="0" Margin="10 10 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Add Group" Click="ShowGrid"/>
+        <Button Grid.Row="0" Grid.Column="0" Margin="10 50 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Delete Group" Click="ShowGrid"/>
+        <Button Grid.Row="0" Grid.Column="0" Margin="10 90 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Add Link" Click="ShowGrid"/>
+        <Button Grid.Row="0" Grid.Column="0" Margin="10 130 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Delete Link" Click="ShowGrid"/>
+        
+        <Grid Grid.Row="0" Grid.Column="1" Margin="10" x:Name="AddGroupGrid" Visibility="Hidden">
             <TextBlock Text="Group name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 5"/>
-            <TextBox BorderBrush="Black"  Height="30" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="75 0" />
-            <Button Content="Add" Height="30" Width="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 55 0"/>
+            <TextBox BorderBrush="Black"  Height="30" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="75 0" x:Name="NewGroupNameBox"/>
+            <Button Content="Add" Height="30" Width="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 55 0" Click="AddGroup"/>
         </Grid>
-        <Grid Grid.Column="1" Margin="10" x:Name="DeleteGroupGrid" Visibility="Hidden">
+        <Grid Grid.Row="0" Grid.Column="1" Margin="10" x:Name="DeleteGroupGrid" Visibility="Hidden">
             <TextBlock Text="Group name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 5"/>
-            <ListView x:Name="DeleteGroupList" Height="400" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="Black" SelectionMode="Single"/>
-
+            <ListView x:Name="DeleteGroupList" Height="150" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="Black" SelectionMode="Single" Margin="75 0"/>
+            <Button Content="Delete" Height="30" Width="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 -550 0" Click="RemoveGroup"/>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Margin="10" x:Name="AddLinkGrid" Visibility="Hidden">
+            <TextBlock Text="Group name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 5"/>
+            <ListView x:Name="AddLinkGroupList" Height="150" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="Black" SelectionMode="Single" Margin="75 0"/>
+            <TextBlock Text="Link" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 165 0 0"/>
+            <TextBox  BorderBrush="Black"  Height="30" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="75 160 0 0" x:Name="NewLinkBox"/>
+            <Button Content="Add" Height="30" Width="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 160 55 0" Click="AddLink"/>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Margin="10" x:Name="DeleteLinkGrid" Visibility="Hidden">
+            <TextBlock Text="Groups" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="25 5"/>
+            <ListView x:Name="DeleteLinkGroupList" Height="150" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="Black" SelectionMode="Single" Margin="75 0" SelectionChanged="SelectGroup"/>
             
-            
-            <Button Content="Delete" Height="30" Width="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 55 0"/>
+            <TextBlock Text="Links" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35 165"/>
+            <ListView x:Name="DeleteLinkLinkList" Height="150" Width="500" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="Black" SelectionMode="Single" Margin="75 160 0 0"/>
+            <Button Content="Delete" Height="30" Width="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 160 -550 0" Click="DeleteLink"/>
         </Grid>
         
-        
+        <TextBlock x:Name="Outputs" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Height="30" Width="750" VerticalAlignment="Top" Margin="25 0 25 10"/>
     </Grid>
 </Window>

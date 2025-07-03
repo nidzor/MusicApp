@@ -72,7 +72,6 @@ public partial class MainWindow : Window
         else
         {
             var files = new DirectoryInfo(musicFilesPath).GetFiles();
-
             if (stopped)
             {
                 stopped = false;
@@ -87,8 +86,6 @@ public partial class MainWindow : Window
                         break;
                     }
                 }
-                
-
                 var path = files[randomIndex].ToString();
                 player.Open(new Uri(path));
                 player.Play();
@@ -97,7 +94,6 @@ public partial class MainWindow : Window
                 titleBlock.Text = title;
                 LastIndexUpdate(randomIndex);
             }
-
             player.MediaEnded += Loop;
         }
     }
