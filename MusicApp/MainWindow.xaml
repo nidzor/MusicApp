@@ -11,7 +11,6 @@
             <ColumnDefinition />
             <ColumnDefinition />
             <ColumnDefinition />
-            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -21,19 +20,19 @@
         
         
         <!-- column 1 -->
-        <TextBlock Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Center" Text="Settings" Margin="0 20 0 0" FontSize="30" />
-        <TextBlock Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Center" Text="Volume" Margin="0 70 0 0" FontSize="20" />
-        <Slider x:Name="volumeSlider" Grid.Column="0" Margin=" 0 100 0 0" Minimum="0" Maximum="1" Width="180" ValueChanged="changeVolume" Value="0.05" />
+        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Center" Text="Settings" Margin="0 20 0 0" FontSize="30" />
+        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Center" Text="Volume" Margin="0 70 0 0" FontSize="20" />
+        <Slider Grid.Row="0" x:Name="volumeSlider" Grid.Column="0" Margin=" 0 100 0 0" Minimum="0" Maximum="1" Width="180" ValueChanged="changeVolume" Value="0.05" />
         
         <TextBlock Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="4" Height="20" FontSize="15" TextAlignment="Center" Margin="5" x:Name="titleBlock"/>
         
         <!-- column 2 -->
-        <Button Grid.Column="1" Click="PlayRandom" Height="100" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left">Start</Button>
-        <Button Grid.Column="1" Click="Stop" Height="100" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right">Stop</Button>
-        <CheckBox x:Name="loopBox" Grid.Column="1" Margin="0 110 0 0" Content="Loop Random"/>
+        <Button Grid.Row="0" Grid.Column="1" Click="Play" Height="100" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left">Start</Button>
+        <Button Grid.Row="0" Grid.Column="1" Click="Stop" Height="100" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right">Stop</Button>
+        <CheckBox Grid.Row="0" x:Name="loopBox" Grid.Column="1" Margin="0 110 0 0" Content="Loop Random" IsChecked="True"/>
         
         <!-- column 3 -->
-        <Button Grid.Column="3" Click="Test" Height="100" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left">Test</Button>
-        
+        <Button Grid.Row="0" Grid.Column="2" Click="Test" Height="100" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left">Test</Button>
+        <Button Grid.Row="0" Grid.Column="2" Height="100" Width="100" VerticalAlignment="Top" HorizontalAlignment="Right" Content="Modify Groups" Click="OpenWindow"/>
     </Grid>
 </Window>

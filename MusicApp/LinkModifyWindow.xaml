@@ -1,0 +1,35 @@
+<Window x:Class="MusicApp.LinkModifyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:MusicApp"
+        mc:Ignorable="d"
+        Title="LinkModifyWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Button Grid.Column="0" Margin="10 10 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Add Group" Click="ShowGrid"/>
+        <Button Grid.Column="0" Margin="10 50 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Delete Group" Click="ShowGrid"/>
+        <Button Grid.Column="0" Margin="10 90 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Add Link" Click="ShowGrid"/>
+        <Button Grid.Column="0" Margin="10 130 0 0" Height="30" Width="100" VerticalAlignment="Top" HorizontalAlignment="Left" Content="Delete Link" Click="ShowGrid"/>
+        
+        <Grid Grid.Column="1" Margin="10" x:Name="AddGroupGrid" Visibility="Hidden">
+            <TextBlock Text="Group name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 5"/>
+            <TextBox BorderBrush="Black"  Height="30" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="75 0" />
+            <Button Content="Add" Height="30" Width="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 55 0"/>
+        </Grid>
+        <Grid Grid.Column="1" Margin="10" x:Name="DeleteGroupGrid" Visibility="Hidden">
+            <TextBlock Text="Group name" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 5"/>
+            <ListView x:Name="DeleteGroupList" Height="400" Width="200" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="Black" SelectionMode="Single"/>
+
+            
+            
+            <Button Content="Delete" Height="30" Width="50" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 0 55 0"/>
+        </Grid>
+        
+        
+    </Grid>
+</Window>
